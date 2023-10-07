@@ -145,26 +145,28 @@ namespace EncriptarCadenasTexto
             int counterFlag = 0;
             int counterCharacterKey = 0;
 
-            foreach (char c in stringOriginalText)//Recorremos la cadena por caracter
+            try
             {
-                if (flagConcatenateKey == counterFlag)
+                foreach (char c in stringOriginalText)//Recorremos la cadena por caracter
                 {
-                    processedTextString = processedTextString + c + stringConcatenateKey[counterCharacterKey];//Se agrega el caracter que sigue en la cadena inicial, mas el caracter que sigue en el key
-                    counterCharacterKey++;
-                    counterFlag = 0;
+                    if (flagConcatenateKey == counterFlag)
+                    {
+                        processedTextString = processedTextString + c + stringConcatenateKey[counterCharacterKey];//Se agrega el caracter que sigue en la cadena inicial, mas el caracter que sigue en el key
+                        counterCharacterKey++;
+                        counterFlag = 0;
+                    }
+                    else
+                    {
+                        processedTextString = processedTextString + c;//Se agrega el caracter que sigue en la cadena inicial
+                        counterFlag++;
+                    }
+
+                    if (stringConcatenateKey.Length == counterCharacterKey)
+                        counterCharacterKey = 0;
+
                 }
-                else
-                {
-                    processedTextString = processedTextString + c;//Se agrega el caracter que sigue en la cadena inicial
-                    counterFlag++;
-                }
-
-
-
-                if (stringConcatenateKey.Length == counterCharacterKey)
-                    counterCharacterKey = 0;
-
             }
+            catch { }
 
             return processedTextString;
         }

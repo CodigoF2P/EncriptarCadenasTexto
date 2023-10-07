@@ -47,18 +47,34 @@ namespace EncriptarCadenasTexto
 
         private void btnCopyEncrypt_Click(object sender, EventArgs e)
         {
-            Clipboard.SetText(txtEncryptedText.Text);
+            //Clipboard.SetText(txtEncryptedText.Text);
+            try
+            {
+                //No es necesaria esta linea solo es para enviar un apoyo visual de que el texto fue copiado, se puede cambiar por un mensaje
+                txtEncryptedText.ReadOnly = true;
 
-            //No es necesaria esta linea solo es para enviar un apoyo visual de que el texto fue copiado, se puede cambiar por un mensaje
-            txtEncryptedText.ReadOnly = true;
+                Clipboard.SetDataObject(txtEncryptedText.Text, true);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al copiar texto al portapapeles: \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnCopyDecrypt_Click(object sender, EventArgs e)
         {
-            Clipboard.SetText(txtDecryptText.Text);
+            //Clipboard.SetText(txtDecryptText.Text);
+            try
+            {
+                //No es necesaria esta linea solo es para enviar un apoyo visual de que el texto fue copiado, se puede cambiar por un mensaje
+                txtDecryptText.ReadOnly = true;
 
-            //No es necesaria esta linea solo es para enviar un apoyo visual de que el texto fue copiado, se puede cambiar por un mensaje
-            txtDecryptText.ReadOnly = true;
-        }
+                Clipboard.SetDataObject(txtDecryptText.Text, true);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al copiar texto al portapapeles: \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+}
     }
 }
