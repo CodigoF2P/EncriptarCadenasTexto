@@ -31,6 +31,7 @@ namespace EncriptarCadenasTexto
             txtKeyEncryption.Text = "";
 
             btnCopyEncrypt.Visible = false;
+            txtEncryptedText.ReadOnly = false;
         }
 
         private void btnCleanDecrypt_Click(object sender, EventArgs e)
@@ -41,6 +42,23 @@ namespace EncriptarCadenasTexto
             txtKeyDecrypt.Text = "";
 
             btnCopyDecrypt.Visible = false;
+            txtDecryptText.ReadOnly = false;
+        }
+
+        private void btnCopyEncrypt_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(txtEncryptedText.Text);
+
+            //No es necesaria esta linea solo es para enviar un apoyo visual de que el texto fue copiado, se puede cambiar por un mensaje
+            txtEncryptedText.ReadOnly = true;
+        }
+
+        private void btnCopyDecrypt_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(txtDecryptText.Text);
+
+            //No es necesaria esta linea solo es para enviar un apoyo visual de que el texto fue copiado, se puede cambiar por un mensaje
+            txtDecryptText.ReadOnly = true;
         }
     }
 }

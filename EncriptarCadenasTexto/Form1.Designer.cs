@@ -81,7 +81,6 @@
             // 
             txtEncryptedText.Location = new Point(141, 118);
             txtEncryptedText.Name = "txtEncryptedText";
-            txtEncryptedText.ReadOnly = true;
             txtEncryptedText.Size = new Size(397, 23);
             txtEncryptedText.TabIndex = 10;
             // 
@@ -103,6 +102,7 @@
             btnCopyEncrypt.Text = "Copiar";
             btnCopyEncrypt.UseVisualStyleBackColor = true;
             btnCopyEncrypt.Visible = false;
+            btnCopyEncrypt.Click += btnCopyEncrypt_Click;
             // 
             // btnCleanEncrypt
             // 
@@ -196,7 +196,6 @@
             // 
             txtDecryptText.Location = new Point(141, 118);
             txtDecryptText.Name = "txtDecryptText";
-            txtDecryptText.ReadOnly = true;
             txtDecryptText.Size = new Size(397, 23);
             txtDecryptText.TabIndex = 10;
             // 
@@ -218,6 +217,7 @@
             btnCopyDecrypt.Text = "Copiar";
             btnCopyDecrypt.UseVisualStyleBackColor = true;
             btnCopyDecrypt.Visible = false;
+            btnCopyDecrypt.Click += btnCopyDecrypt_Click;
             // 
             // btnCleanDecrypt
             // 
