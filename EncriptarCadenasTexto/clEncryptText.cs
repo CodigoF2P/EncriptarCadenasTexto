@@ -1,4 +1,5 @@
 ﻿using System.Security.Cryptography;
+using System.Text;
 
 namespace EncriptarCadenasTexto
 {
@@ -12,19 +13,10 @@ namespace EncriptarCadenasTexto
             encryptedTextString = encryptedTextString + '.';
             encryptedTextString = RevertString(encryptedTextString);
             encryptedTextString = EncryptTextAES(encryptedTextString, stringPasswordAlgorithm, 256);
+            encryptedTextString = UnicodeStandardEncoding(encryptedTextString);
+            encryptedTextString = RevertString(encryptedTextString);
 
             return encryptedTextString;
-        }
-        public string Decrypt(string encryptedTextString, string stringDeconcatenateKey, string stringPasswordAlgorithm)//Metodo para desencriptar texto
-        {
-            string decryptedTextString = DecryptTextAES(encryptedTextString, stringPasswordAlgorithm, 256);
-            decryptedTextString = RevertString(decryptedTextString);
-            decryptedTextString = decryptedTextString.Substring(0, (decryptedTextString.Length - 1));
-            decryptedTextString = DeconcatenateKey(decryptedTextString, stringDeconcatenateKey);
-            decryptedTextString = RevertString(decryptedTextString);
-            decryptedTextString = CharacterDictionary(decryptedTextString);
-
-            return decryptedTextString;
         }
         private string CharacterDictionary(string stringOriginalText)//Cambiar caracteres
         {
@@ -170,27 +162,6 @@ namespace EncriptarCadenasTexto
 
             return processedTextString;
         }
-        private string DeconcatenateKey(string stringTextKeyed, string stringDeconcatenateKey)//Quitar el KEY al string
-        {
-            string decryptedTextString = "";
-            int flagDeconcatenateKey = (stringDeconcatenateKey.Length / 2) + 1;
-            int counterFlag = 0;
-
-            foreach (char c in stringTextKeyed)//Recorremos la cadena por caracter
-            {
-                if (flagDeconcatenateKey == counterFlag)//Quitamos el Key
-                {
-                    counterFlag = 0;
-                }
-                else//Agregamos por caracter la cadena original
-                {
-                    decryptedTextString = decryptedTextString + c;
-                    counterFlag++;
-                }
-            }
-
-            return decryptedTextString;
-        }
         private string RevertString(string stringOriginalText)//Revertir cadenas de texto
         {
             string invertedString = "";
@@ -256,57 +227,10 @@ namespace EncriptarCadenasTexto
             }
 
         }
-        private byte[] DecryptionAES(byte[] cipherData, byte[] Key, byte[] IV)
+        private static string UnicodeStandardEncoding(string stringOriginalText)//Codificación estándar de Unicode UTF-8
         {
-            try
-            {
-                MemoryStream ms = new MemoryStream();
-                Rijndael algoritmoEncriptacion = Rijndael.Create();
-                algoritmoEncriptacion.Key = Key;
-                algoritmoEncriptacion.IV = IV;
-                CryptoStream cs = new CryptoStream(ms, algoritmoEncriptacion.CreateDecryptor(), CryptoStreamMode.Write);//Desencripta
-                cs.Write(cipherData, 0, cipherData.Length);
-                cs.Close();
-                byte[] informacionDesencriptada = ms.ToArray();
-                return informacionDesencriptada;
-            }
-            catch (Exception ex)
-            {
-                //MessageBox.Show("Error: " + ex.Message);
-                return cipherData;
-            }
-        }
-        private string DecryptTextAES(string Data, string Password, int Bits)
-        {
-            try
-            {
-                byte[] cipherBytes = Convert.FromBase64String(Data);
-                PasswordDeriveBytes pdb = new PasswordDeriveBytes(Password, new byte[] { 0x0, 0x1, 0x2, 0x1C, 0x1D, 0x1E, 0x3, 0x4, 0x5, 0xF, 0x20, 0x21, 0xAD, 0xAF, 0xA4 });
-                if (Bits == 128)
-                {
-                    byte[] decryptedData = DecryptionAES(cipherBytes, pdb.GetBytes(16), pdb.GetBytes(16));
-                    return System.Text.Encoding.Unicode.GetString(decryptedData);
-                }
-                else if (Bits == 192)
-                {
-                    byte[] decryptedData = DecryptionAES(cipherBytes, pdb.GetBytes(24), pdb.GetBytes(16));
-                    return System.Text.Encoding.Unicode.GetString(decryptedData);
-                }
-                else if (Bits == 256)
-                {
-                    byte[] decryptedData = DecryptionAES(cipherBytes, pdb.GetBytes(32), pdb.GetBytes(16));
-                    return System.Text.Encoding.Unicode.GetString(decryptedData);
-                }
-                else
-                {
-                    return String.Concat(Bits);
-                }
-            }
-            catch (Exception ex)
-            {
-                //MessageBox.Show("Error: " + ex.Message);
-                return String.Concat(Bits);
-            }
+            byte[] bTextBytes = Encoding.UTF8.GetBytes(stringOriginalText);
+            return System.Convert.ToBase64String(bTextBytes);
         }
     }
 }

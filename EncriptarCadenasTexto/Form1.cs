@@ -2,6 +2,16 @@ namespace EncriptarCadenasTexto
 {
     public partial class Form1 : Form
     {
+        /*
+         * Esta aplicación está enfocada únicamente a crear claves codificadas,
+         * las cuales se pueden usar para los datos de conexión,
+         * dentro de nuestras cadenas de conexión.
+         * Se agregan las clases para codificar y decodificar el texto.
+         * aunque la “llave” se integra al texto y se guarda dentro de la cadena,
+         * la “Llave para encriptar” no se guarda y solo la conoce la persona que usa esta aplicación.
+         * Cualquiera es libre de usar estas clases o modificarlas para sus proyectos,
+         * así como de crear sus librerías en caso de no querer usar clases.
+         */
         public Form1()
         {
             InitializeComponent();
@@ -17,7 +27,7 @@ namespace EncriptarCadenasTexto
 
         private void btnDecrypt_Click(object sender, EventArgs e)
         {
-            clEncryptText objDecrypt = new clEncryptText();
+            clDecryptText objDecrypt = new clDecryptText();
 
             txtDecryptText.Text = objDecrypt.Decrypt(txtTextEncrypted.Text, txtKey2.Text, txtKeyDecrypt.Text);
             btnCopyDecrypt.Visible = true;
@@ -47,7 +57,6 @@ namespace EncriptarCadenasTexto
 
         private void btnCopyEncrypt_Click(object sender, EventArgs e)
         {
-            //Clipboard.SetText(txtEncryptedText.Text);
             try
             {
                 //No es necesaria esta linea solo es para enviar un apoyo visual de que el texto fue copiado, se puede cambiar por un mensaje
@@ -63,7 +72,6 @@ namespace EncriptarCadenasTexto
 
         private void btnCopyDecrypt_Click(object sender, EventArgs e)
         {
-            //Clipboard.SetText(txtDecryptText.Text);
             try
             {
                 //No es necesaria esta linea solo es para enviar un apoyo visual de que el texto fue copiado, se puede cambiar por un mensaje
@@ -75,6 +83,6 @@ namespace EncriptarCadenasTexto
             {
                 MessageBox.Show("Error al copiar texto al portapapeles: \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-}
+        }
     }
 }
