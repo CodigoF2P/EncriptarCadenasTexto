@@ -1,1 +1,2 @@
 # EncriptarCadenasTexto
+Programa para encriptar y desencriptar cadanas de texto, estás son útiles para crear la cadenas de conexión de forma encriptada, se incluyen las clases que también pueden ser usadas para guardar las contraseñas de usuarios de forma encriptada en la base de datos
