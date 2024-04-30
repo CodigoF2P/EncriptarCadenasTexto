@@ -33,7 +33,7 @@ namespace EncriptarCadenasTexto
 
             return invertedString;
         }
-        public static string UnicodeStandardDecoding(string encryptedTextString)//Decodificación estándar de Unicode UTF-8
+        private static string UnicodeStandardDecoding(string encryptedTextString)//Decodificación estándar de Unicode UTF-8
         {
             byte[] bTextBytes = System.Convert.FromBase64String(encryptedTextString);
             return System.Text.Encoding.UTF8.GetString(bTextBytes);
@@ -95,11 +95,19 @@ namespace EncriptarCadenasTexto
             string decryptedTextString = "";
             int flagDeconcatenateKey = (stringDeconcatenateKey.Length / 2) + 1;
             int counterFlag = 0;
+            int counterCharacterKey = 0;
+            Random randomCharacter = new Random();
 
             foreach (char c in stringTextKeyed)//Recorremos la cadena por caracter
             {
                 if (flagDeconcatenateKey == counterFlag)//Quitamos el Key
                 {
+                    if (c != stringDeconcatenateKey[counterCharacterKey])//Validamos el caracter del key
+                    {//Agregamos un caracter aleatorio si el key es incorrecto
+                        decryptedTextString = decryptedTextString + (char)(randomCharacter.Next(33, 122));
+                    }
+                    
+                    counterCharacterKey++;
                     counterFlag = 0;
                 }
                 else//Agregamos por caracter la cadena original
@@ -107,6 +115,9 @@ namespace EncriptarCadenasTexto
                     decryptedTextString = decryptedTextString + c;
                     counterFlag++;
                 }
+
+                if (stringDeconcatenateKey.Length == counterCharacterKey)
+                    counterCharacterKey = 0;
             }
 
             return decryptedTextString;
