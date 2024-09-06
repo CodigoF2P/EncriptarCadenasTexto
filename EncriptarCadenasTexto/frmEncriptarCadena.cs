@@ -1,6 +1,6 @@
 namespace EncriptarCadenasTexto
 {
-    public partial class Form1 : Form
+    public partial class frmEncriptarCadena : Form
     {
         /*
          * Esta aplicación está enfocada únicamente a crear claves codificadas,
@@ -12,7 +12,7 @@ namespace EncriptarCadenasTexto
          * Cualquiera es libre de usar estas clases o modificarlas para sus proyectos,
          * así como de crear sus librerías en caso de no querer usar clases.
          */
-        public Form1()
+        public frmEncriptarCadena()
         {
             InitializeComponent();
         }

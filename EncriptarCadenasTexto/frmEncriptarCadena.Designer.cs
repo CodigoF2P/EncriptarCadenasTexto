@@ -1,6 +1,6 @@
 ﻿namespace EncriptarCadenasTexto
 {
-    partial class Form1
+    partial class frmEncriptarCadena
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEncriptarCadena));
             grbEncrypt = new GroupBox();
             txtEncryptedText = new TextBox();
             lblEncryptedText = new Label();
