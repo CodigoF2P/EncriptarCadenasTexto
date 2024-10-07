@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Security.Cryptography;
+﻿using System.Security.Cryptography;
 
 namespace EncriptarCadenasTexto
 {
@@ -35,8 +30,15 @@ namespace EncriptarCadenasTexto
         }
         private static string UnicodeStandardDecoding(string encryptedTextString)//Decodificación estándar de Unicode UTF-8
         {
-            byte[] bTextBytes = System.Convert.FromBase64String(encryptedTextString);
-            return System.Text.Encoding.UTF8.GetString(bTextBytes);
+            try
+            {
+                byte[] bTextBytes = System.Convert.FromBase64String(encryptedTextString);
+                return System.Text.Encoding.UTF8.GetString(bTextBytes);
+            }
+            catch
+            {
+                return encryptedTextString;
+            }
         }
         private string DecryptTextAES(string Data, string Password, int Bits)
         {

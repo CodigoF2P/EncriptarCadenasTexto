@@ -142,9 +142,9 @@
             // 
             // txtKey
             // 
-            txtKey.Location = new Point(46, 51);
+            txtKey.Location = new Point(76, 51);
             txtKey.Name = "txtKey";
-            txtKey.Size = new Size(157, 23);
+            txtKey.Size = new Size(127, 23);
             txtKey.TabIndex = 3;
             // 
             // lblKey
@@ -152,9 +152,9 @@
             lblKey.AutoSize = true;
             lblKey.Location = new Point(6, 54);
             lblKey.Name = "lblKey";
-            lblKey.Size = new Size(34, 15);
+            lblKey.Size = new Size(64, 15);
             lblKey.TabIndex = 2;
-            lblKey.Text = "Llave";
+            lblKey.Text = "Llave (PIN)";
             // 
             // txtText
             // 
@@ -257,9 +257,9 @@
             // 
             // txtKey2
             // 
-            txtKey2.Location = new Point(46, 51);
+            txtKey2.Location = new Point(76, 51);
             txtKey2.Name = "txtKey2";
-            txtKey2.Size = new Size(157, 23);
+            txtKey2.Size = new Size(127, 23);
             txtKey2.TabIndex = 3;
             // 
             // lblKey2
@@ -267,9 +267,9 @@
             lblKey2.AutoSize = true;
             lblKey2.Location = new Point(6, 54);
             lblKey2.Name = "lblKey2";
-            lblKey2.Size = new Size(34, 15);
+            lblKey2.Size = new Size(64, 15);
             lblKey2.TabIndex = 2;
-            lblKey2.Text = "Llave";
+            lblKey2.Text = "Llave (PIN)";
             // 
             // txtTextEncrypted
             // 
@@ -287,7 +287,7 @@
             lblTextEncrypted.TabIndex = 0;
             lblTextEncrypted.Text = "Texto para desencriptar";
             // 
-            // Form1
+            // frmEncriptarCadena
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -298,7 +298,7 @@
             MaximizeBox = false;
             MaximumSize = new Size(584, 375);
             MinimumSize = new Size(584, 375);
-            Name = "Form1";
+            Name = "frmEncriptarCadena";
             Text = "Encriptar texto";
             grbEncrypt.ResumeLayout(false);
             grbEncrypt.PerformLayout();

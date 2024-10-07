@@ -27,10 +27,13 @@ namespace EncriptarCadenasTexto
 
         private void btnDecrypt_Click(object sender, EventArgs e)
         {
-            clDecryptText objDecrypt = new clDecryptText();
+            if (txtTextEncrypted.Text != "")
+            {
+                clDecryptText objDecrypt = new clDecryptText();
 
-            txtDecryptText.Text = objDecrypt.Decrypt(txtTextEncrypted.Text, txtKey2.Text, txtKeyDecrypt.Text);
-            btnCopyDecrypt.Visible = true;
+                txtDecryptText.Text = objDecrypt.Decrypt(txtTextEncrypted.Text, txtKey2.Text, txtKeyDecrypt.Text);
+                btnCopyDecrypt.Visible = true;
+            }
         }
 
         private void btnCleanEncrypt_Click(object sender, EventArgs e)
