@@ -126,25 +126,25 @@
             // 
             // txtKeyEncryption
             // 
-            txtKeyEncryption.Location = new Point(343, 51);
+            txtKeyEncryption.Location = new Point(386, 51);
             txtKeyEncryption.Name = "txtKeyEncryption";
-            txtKeyEncryption.Size = new Size(195, 23);
+            txtKeyEncryption.Size = new Size(152, 23);
             txtKeyEncryption.TabIndex = 5;
             // 
             // lblKeyEncryption
             // 
             lblKeyEncryption.AutoSize = true;
-            lblKeyEncryption.Location = new Point(209, 54);
+            lblKeyEncryption.Location = new Point(181, 54);
             lblKeyEncryption.Name = "lblKeyEncryption";
-            lblKeyEncryption.Size = new Size(110, 15);
+            lblKeyEncryption.Size = new Size(181, 15);
             lblKeyEncryption.TabIndex = 4;
-            lblKeyEncryption.Text = "Llave para encriptar";
+            lblKeyEncryption.Text = "Llave para encriptar (Contraseña)";
             // 
             // txtKey
             // 
             txtKey.Location = new Point(76, 51);
             txtKey.Name = "txtKey";
-            txtKey.Size = new Size(127, 23);
+            txtKey.Size = new Size(99, 23);
             txtKey.TabIndex = 3;
             // 
             // lblKey
@@ -241,25 +241,25 @@
             // 
             // txtKeyDecrypt
             // 
-            txtKeyDecrypt.Location = new Point(343, 51);
+            txtKeyDecrypt.Location = new Point(386, 51);
             txtKeyDecrypt.Name = "txtKeyDecrypt";
-            txtKeyDecrypt.Size = new Size(195, 23);
+            txtKeyDecrypt.Size = new Size(152, 23);
             txtKeyDecrypt.TabIndex = 5;
             // 
             // lblKeyDecrypt
             // 
             lblKeyDecrypt.AutoSize = true;
-            lblKeyDecrypt.Location = new Point(209, 54);
+            lblKeyDecrypt.Location = new Point(181, 54);
             lblKeyDecrypt.Name = "lblKeyDecrypt";
-            lblKeyDecrypt.Size = new Size(128, 15);
+            lblKeyDecrypt.Size = new Size(199, 15);
             lblKeyDecrypt.TabIndex = 4;
-            lblKeyDecrypt.Text = "Llave para desencriptar";
+            lblKeyDecrypt.Text = "Llave para desencriptar (Contraseña)";
             // 
             // txtKey2
             // 
             txtKey2.Location = new Point(76, 51);
             txtKey2.Name = "txtKey2";
-            txtKey2.Size = new Size(127, 23);
+            txtKey2.Size = new Size(99, 23);
             txtKey2.TabIndex = 3;
             // 
             // lblKey2

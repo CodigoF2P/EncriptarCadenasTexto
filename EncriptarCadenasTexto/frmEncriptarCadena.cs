@@ -19,21 +19,28 @@ namespace EncriptarCadenasTexto
 
         private void btnEncrypt_Click(object sender, EventArgs e)
         {
-            clEncryptText objEncrypt = new clEncryptText();
+            if (txtText.Text != "" && txtKey.Text != "" && txtKeyEncryption.Text != "")
+            {
+                clEncryptText objEncrypt = new clEncryptText();
 
-            txtEncryptedText.Text = objEncrypt.Encrypt(txtText.Text, txtKey.Text, txtKeyEncryption.Text);
-            btnCopyEncrypt.Visible = true;
+                txtEncryptedText.Text = objEncrypt.Encrypt(txtText.Text, txtKey.Text, txtKeyEncryption.Text);
+                btnCopyEncrypt.Visible = true;
+            }
+            else
+                MessageBox.Show("Se requiere que se capturen los datos de encriptación.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void btnDecrypt_Click(object sender, EventArgs e)
         {
-            if (txtTextEncrypted.Text != "")
+            if (txtTextEncrypted.Text != "" && txtKey2.Text != "" && txtKeyDecrypt.Text != "")
             {
                 clDecryptText objDecrypt = new clDecryptText();
 
                 txtDecryptText.Text = objDecrypt.Decrypt(txtTextEncrypted.Text, txtKey2.Text, txtKeyDecrypt.Text);
                 btnCopyDecrypt.Visible = true;
             }
+            else
+                MessageBox.Show("Se requiere que se capturen los datos de la desencriptación.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void btnCleanEncrypt_Click(object sender, EventArgs e)
